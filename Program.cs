@@ -1,9 +1,13 @@
-﻿namespace Lab6OOPGenericCollections
+﻿//Theo Lilliesköld NET25
+
+namespace Lab6OOPGenericCollections
 {
     internal class Program
     {
         static void Main(string[] args)
         {
+            //PART 1 (STACK)
+
             var employeeStack = new Stack<Employee>();
 
             var employee1 = new Employee("ID4034", "Jonas", "Male", 45000m);
@@ -60,6 +64,30 @@
                 Console.WriteLine("\nObject number 3 is not in Stack");
             }
 
+
+            //PART 2 (LIST)
+
+            Console.WriteLine("\n-------------------------------------\n");
+            var employeeList = new List<Employee>();
+
+            employeeList.Add(employee1);
+            employeeList.Add(employee2);
+            employeeList.Add(employee3);
+            employeeList.Add(employee4);
+            employeeList.Add(employee5);
+
+            if (employeeList.Contains(employee2))
+                Console.WriteLine("Employee2 object exists in the list");
+            else
+                Console.WriteLine("Employee2 o  bject does not exist in the list");
+
+            Console.WriteLine($"\n{employeeList.Find(employee => employee.Gender == "Male")}\n");
+
+            var males = employeeList.FindAll(employee => employee.Gender == "Male");
+            foreach (var male in males)
+            {
+                Console.WriteLine(male);
+            }
 
         }
     }
